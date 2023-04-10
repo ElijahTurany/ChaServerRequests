@@ -1,6 +1,22 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+#include "Server.h"
+#include <chrono>
+using namespace std::chrono;
 
 int main() {
-    cout << "Hello World!\n";
+    Server s;
+    Request r1("TextFile.txt");
+    Request r2("TextFile.txt");
+    Request r3("TextFile.txt");
+    Request r4("TextFile.txt");
+    s.enqueue(r1);
+    s.enqueue(r2);
+    s.enqueue(r3);
+    s.enqueue(r4);
+    s.dequeue();
+    s.dequeue();
+    s.dequeue();
+    s.dequeue();
+  
 }
