@@ -40,13 +40,13 @@ public:
 	void dequeue() {
 		string fileContents;
 		if (requests.size() > 0) {
-			if (latency < 30000) {
+			if (latency < 1000000) {
 				file.open(requests[0].getContents());
 				file >> fileContents;
 				cout << requests[0].getTimestamp() << ": " << fileContents << endl;
 				file.close();
 				latency = chrono::system_clock().now().time_since_epoch().count() - requests[0].getTimestamp();
-				cout << "Latency: " << latency << endl;
+				cout << "Queue Latency: " << latency << endl;
 				requests.erase(requests.begin());
 			}
 			else {
@@ -55,7 +55,7 @@ public:
 				cout << requests[requests.size() - 1].getTimestamp() << ": " << fileContents << endl;
 				file.close();
 				latency = chrono::system_clock().now().time_since_epoch().count() - requests[requests.size() - 1].getTimestamp();
-				cout << "latency: " << latency << endl;
+				cout << "Stack Latency: " << latency << endl;
 				requests.pop_back();
 			}
 		}
