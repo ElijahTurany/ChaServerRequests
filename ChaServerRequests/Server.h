@@ -11,7 +11,7 @@ private:
 	long long timestamp;
 	string requestContents;
 public:
-	Request( string contentsIn) {
+	Request(string contentsIn) {
 		timestamp = chrono::system_clock().now().time_since_epoch().count();
 		requestContents = contentsIn;
 	}
