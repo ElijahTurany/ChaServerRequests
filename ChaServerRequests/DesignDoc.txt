@@ -21,4 +21,5 @@ Methods
 		that evaluates based on server latency. Regardless of which branch runs, the file with the name of the
 		given request is opened, passed into the string that was previously created, printed along with the
 		timestamp of the request, and then closed. If the latency is low, then the first request in the vector is
-		removed (FIFO). Otherwise, the last item in the vector is removed (FILO).
+		removed (FIFO). Otherwise, the last item in the vector is removed (FILO). I used a tenth of a second as my
+		latency cutoff, as it was much faster to test than 30 seconds of latency.
