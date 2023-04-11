@@ -26,5 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TextFile.txt" />
+    <Text Include="DesignDoc.txt" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,24 @@
+Variables
+	The server class has three variables:
+
+	vector<Request> requests:
+		A vector holds requests as they come in. I chose to use a vector because I can remove items from the front of the list easily
+	ifstream file:
+		This varible is how I open a file and get the contents. Its part of the fstream library
+	int latency:
+		Holds the latency for the server. It is initialized to 0.
+
+Methods
+	The server class only has two methods:
+
+	void enqueue(Request requestIn):
+		All request are added the same way regardless of latency, so this method is pretty simple. 
+		It just pushed the given request to the back of the requests vector.
+
+	void dequeue()
+		This method is a bit more complicated that enqueue. First, a string is created to hold file contents. 
+		Then, a check is done to make sure the requests vector isn't empty. Then there is an if else branch
+		that evaluates based on server latency. Regardless of which branch runs, the file with the name of the
+		given request is opened, passed into the string that was previously created, printed along with the
+		timestamp of the request, and then closed. If the latency is low, then the first request in the vector is
+		removed (FIFO). Otherwise, the last item in the vector is removed (FILO).
